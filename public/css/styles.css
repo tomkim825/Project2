@@ -45,3 +45,54 @@ button.edit {
 .top-30 {
   margin-top: 30px;
 }
+
+/* adding horizontal scoll effect here */
+::-webkit-scrollbar{width:2px;height:2px;}
+::-webkit-scrollbar-button{width:2px;height:2px;}
+
+div{
+  box-sizing:border-box;
+}
+
+body {
+  background: #111;
+  color:white;
+}
+
+.blog-container{
+  position:absolute;
+  display:block;
+  top:0;
+  left:0;
+  /* width:20%;
+  min-height:500px; */
+  margin:0;
+  background:#222;
+  overflow-y:auto;
+  overflow-x:hidden;
+  transform:rotate(-90deg) translateY(-80px);
+  transform-origin:right top;
+}
+.blog-container > div{
+  display:block;
+  padding:5px;
+  background:#444;
+  transform:rotate(90deg);
+  transform-origin: right top;
+}
+
+/* .card{
+  padding:60px 0 0 0;
+} */
+.card-header{
+  height:110px;
+}
+.card > div{
+  width:250px;
+  height:150px;
+  margin:10px;
+}
+
+h2{
+  font-size: 2.5vmin;
+}
