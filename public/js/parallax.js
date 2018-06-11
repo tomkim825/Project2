@@ -60,7 +60,7 @@ function parallaxScroll(){
 	$('#content').css('left',(0-(scrolled*.9))+'px');
 	$('#parallax-bg1').css('left',(0-(scrolled*.25))+'px');
 	$('#parallax-bg2').css('left',(0-(scrolled*.5))+'px');
-	$('#parallax-bg3').css('left',(0-(scrolled*.85))+'px');
+	$('#parallax-bg3').css('left',(0-(scrolled*.82))+'px');
 }
 
 /* Set navigation dots to an active state as the user scrolls */
