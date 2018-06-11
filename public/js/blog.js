@@ -79,6 +79,16 @@ $(document).ready(function() {
     // deleteBtn.text("x");
     // deleteBtn.addClass("delete btn btn-danger");
     // var editBtn = $("<button>");
+    var likeBtn  = $("<button>");
+    // likeBtn.html('<i class="fas fa-thumbs-up"></i>');
+    likeBtn.addClass('btn btn-outline-success fas fa-thumbs-up');
+    var dislikeBtn  = $("<button>");
+    dislikeBtn.addClass('btn btn-outline-danger fas fa-thumbs-down');
+    var scoreBtn  = $("<button>");
+    scoreBtn.addClass('btn btn-sm btn-outline-dark').text('0');
+    var meTooBtn = $('<button>');
+    meTooBtn.addClass('btn btn-sm btn-outline-light ml-3').text('Me Too');
+
     // editBtn.text("EDIT");
     // editBtn.addClass("edit btn btn-info");
     var newPostTitle = $("<h2>").css('color','red').css('font-size', "8vmin");
@@ -103,6 +113,12 @@ console.log(posts[i].image);
     // newPostCardHeading.append(deleteBtn);
     // newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
+    newPostTitle.append(likeBtn);
+    newPostTitle.append(scoreBtn);
+    newPostTitle.append(dislikeBtn);
+    newPostTitle.append(meTooBtn);
+    
+
     // newPostCardHeading.append(newPostAuthor);
     newPostCardBody.append(newPostBody);
     newPostCard.append(newPostCardHeading);
