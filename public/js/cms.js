@@ -2,6 +2,7 @@ $(document).ready(function() {
   // Getting jQuery references to the post body, title, form, and author select
   var bodyInput = $("#body");
   var titleInput = $("#title");
+  var imageInput = $("#image");
   var cmsForm = $("#cms");
   var authorSelect = $("#author");
   // Adding an event listener for when the form is submitted
@@ -40,6 +41,9 @@ $(document).ready(function() {
         .val()
         .trim(),
       body: bodyInput
+        .val()
+        .trim(),
+        image: imageInput
         .val()
         .trim(),
       AuthorId: authorSelect.val()

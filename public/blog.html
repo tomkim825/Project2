@@ -6,30 +6,128 @@
   <title>Blog - Express</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" media="all" href="css/main.css" />
   <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
+  <script src="js/modernizr.custom.37797.js"></script> 
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>!window.jQuery && document.write('<script src="/js/jquery-1.6.1.min.js"><\/script>')</script>
+  <script src="js/parallax.js"></script>
 </head>
 
 <body>
+  <!-- <div class= 'container'>
+      <div class="row">
+          <div class="col-md-2 col-sm-2">
+            <a class="btn btn-light" href="/cms">New Post</a>
+          </div>
+          <div class="col-md-2 col-sm-2">
+            <a class="btn btn-light" href="/authors">Manage Authors</a>
+          </div>
+        </div> -->
+  <!-- </div> -->
+    <div id="wrapper">
+    <header id="branding" class="navbar fixed-top" style='  background-color:  rgba(0,0,0,0.5)'>
+        <h1 style='display:inline' class='text-light'>Social history</h1>
+        <a class="btn btn-light float-right text-dark" href="/cms">New Post</a>
+        <a class="btn btn-light float-right text-dark" href="/authors">Manage Authors</a>
+      </header>
+      
+      <!-- <nav id="primary">
+          <ul>
+            <li>
+              <h1>First manned flights</h1>
+              <a class="manned-flight" href="#manned-flight">View</a>
+            </li>
+            <li>
+              <h1>The frameless parachute</h1>
+              <a class="frameless-parachute" href="#frameless-parachute">View</a>
+            </li>
+            <li>
+              <h1>Over the English Channel</h1>
+              <a class="english-channel" href="#english-channel">View</a>
+            </li>
+            <li>
+              <h1>About</h1>
+              <a class="about" href="#about">View</a>
+            </li>
+          </ul>
+        </nav> -->
+<div id="content">
+
+  
+    <!-- <article id="manned-flight"> -->
+        <!-- <header>
+          <h1>First manned flights</h1>
+        </header>
+        <p>The first clearly recorded instance of a balloon carrying passengers used hot air to generate buoyancy and was built by the brothers Joseph-Michel and Jacques-Etienne Montgolfier in Annonay, France. After experimenting with unmanned balloons and flights with animals, the first tethered balloon flight with humans on board took place on October 15, 1783.</p> -->
+      <!-- </article> -->
+
+      <!-- <article id="frameless-parachute"> -->
+					<!-- <header>
+						<h1>The frameless parachute</h1>
+					</header>
+					<p>André-Jacques Garnerin carried out the first jump with a silk parachute on October 22, 1797 at Parc Monceau, Paris. Garnerin's first parachute resembled a closed umbrella before he ascended; at a height of approximately 3,000 feet he severed the rope that connected his parachute to the balloon, and the basket fell to earth. Garnerin emerged uninjured.</p> -->
+        <!-- </article> -->
+
+        <!-- <article id="english-channel"> -->
+            <!-- <header>
+              <h1>Over the English Channel</h1>
+            </header>
+            <p>On January 7, 1785, Jean Pierre Blanchard and Dr. John Jeffries made the first flight over the English Channel, traveling from Dover to France. During the crossing the balloon lost altitude, so they began tossing everything in the gondola they possibly could, even their clothes. About two hours after take off, they crossed the French coast clad only in their underwear.</p> -->
+          <!-- </article> -->
+          
+          <!-- <article id="about"> -->
+            <!-- <header>
+              <h1>About</h1>
+            </header>
+            <p>This is a jQuery parallax scrolling experiment by Jonathan Nicol. <a href="http://f6design.com/journal/2011/08/06/build-a-parallel-scrolling-website-interface-with-jquery-and-css/">Read about it</a> on my blog.</p> -->
+          <!-- </article> -->
+
+          <div class="col-md-12 blog-container">
+            </div>
+
+
+        </div>
+
   <div class="container blog">
     <div class="row">
-      <div class="col-md-2 col-sm-2">
-        <a class="btn btn-light" href="/cms">New Post</a>
-      </div>
-      <div class="col-md-2 col-sm-2">
-        <a class="btn btn-light" href="/authors">Manage Authors</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 blog-container">
-      </div>
+      <!-- <div class="col-md-12 blog-container">
+      </div> -->
     </div>
   </div>
+  </div> <!--content-->
+
+			<!-- Parallax foreground -->
+			<div id="parallax-bg3">
+          <!-- <img id="bg3-1" src="img/balloon.png" width="529" height="757" alt="Montgolfier hot air balloon"/> -->
+          <!-- <img id="bg3-2" src="img/balloon2.png" width="603" height="583" alt="Frameless parachute"/>
+          <img id="bg3-3" src="img/balloon3.png" width="446" height="713" alt="Blanchard's air balloon"/>
+          <img id="bg3-4" src="img/ground.png" width="1104" height="684" alt="Landscape with trees and cows"/> -->
+        </div>
+        
+        <!-- Parallax  midground clouds -->
+        <div id="parallax-bg2">
+          <!-- <img id="bg2-1" src="img/cloud-lg1.png" alt="cloud"/>
+          <img id="bg2-2" src="img/cloud-lg1.png" alt="cloud"/>
+          <img id="bg2-3" src="img/cloud-lg1.png" alt="cloud"/>
+          <img id="bg2-4" src="img/cloud-lg1.png" alt="cloud"/>
+          <img id="bg2-5" src="img/cloud-lg1.png" alt="cloud"/> -->
+        </div>
+        
+        <!-- Parallax  background clouds -->
+        <div id="parallax-bg1">
+          <!-- <img id="bg1-1" src="img/cloud-lg2.png" alt="cloud"/>
+          <img id="bg1-2" src="img/cloud-lg2.png" alt="cloud"/>
+          <img id="bg1-3" src="img/cloud-lg2.png" alt="cloud"/>
+          <img id="bg1-4" src="img/cloud-lg2.png" alt="cloud"/> -->
+        </div>
+
   <!-- Custom Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
   <script src="js/blog.js" type="text/javascript"></script>
-
+</div><!--wrapper-->
 </body>
 
 </html>

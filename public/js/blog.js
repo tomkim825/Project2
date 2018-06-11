@@ -58,46 +58,52 @@ $(document).ready(function() {
     blogContainer.empty();
     var postsToAdd = [];
     for (var i = 0; i < posts.length; i++) {
-      postsToAdd.push(createNewRow(posts[i]));
+      $('<img>').attr('src','img/cloud-lg1.png').css('position','absolute').css('top',((i*922)%250)+220).css('left',i*1120+200).appendTo('#parallax-bg2');
+      $('<img>').attr('src','img/cloud-lg2.png').css('position','absolute').css('top',((i*933)%250)+110).css('left',i*1310+150).appendTo('#parallax-bg1');
+      $('<img>').attr('src',posts[i].image).css('position','absolute').css('top',50).css('left',i*1200+1200).appendTo('#parallax-bg3');
+      postsToAdd.push(createNewRow(posts[i],i));
     }
     blogContainer.append(postsToAdd);
+    $('body').height(posts.length * 1500);
   }
 
   // This function constructs a post's HTML
-  function createNewRow(post) {
-    var formattedDate = new Date(post.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+  function createNewRow(post,i) {
+    // var formattedDate = new Date(post.createdAt);
+    // formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     var newPostCard = $("<div>");
-    newPostCard.addClass("card");
+    newPostCard.addClass("card").css('left',1400*i).css('top',-120*i);;
     var newPostCardHeading = $("<div>");
-    newPostCardHeading.addClass("card-header");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    var editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-info");
-    var newPostTitle = $("<h2>");
+    newPostCardHeading.addClass("card-header");;
+    // var deleteBtn = $("<button>");
+    // deleteBtn.text("x");
+    // deleteBtn.addClass("delete btn btn-danger");
+    // var editBtn = $("<button>");
+    // editBtn.text("EDIT");
+    // editBtn.addClass("edit btn btn-info");
+    var newPostTitle = $("<h2>").css('color','red').css('font-size', "8vmin");
     var newPostDate = $("<small>");
-    var newPostAuthor = $("<h5>");
-    newPostAuthor.text("Written by: " + post.Author.name);
-    newPostAuthor.css({
-      float: "right",
-      color: "blue",
-      "margin-top":
-      "-10px"
-    });
-    var newPostCardBody = $("<div>");
-    newPostCardBody.addClass("card-body");
+    // var newPostAuthor = $("<h5>");
+    // newPostAuthor.text("Written by: " + post.Author.name);
+    // newPostAuthor.css({
+    //   float: "right",
+    //   color: "blue",
+    //   "margin-top":
+    //   "-10px"
+    // });
+console.log(posts[i].image);
+
+    var newPostCardBody = $("<article>");
+    newPostCardBody.addClass("card-body shpost");//.css('left',1400*i).css('top',-24*i);
     var newPostBody = $("<p>");
     newPostTitle.text(post.title + " ");
     newPostBody.text(post.body);
-    newPostDate.text(formattedDate);
-    newPostTitle.append(newPostDate);
-    newPostCardHeading.append(deleteBtn);
-    newPostCardHeading.append(editBtn);
+    // newPostDate.text(formattedDate);
+    // newPostTitle.append(newPostDate);
+    // newPostCardHeading.append(deleteBtn);
+    // newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
-    newPostCardHeading.append(newPostAuthor);
+    // newPostCardHeading.append(newPostAuthor);
     newPostCardBody.append(newPostBody);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
