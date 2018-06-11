@@ -60,7 +60,7 @@ $(document).ready(function() {
     for (var i = 0; i < posts.length; i++) {
       $('<img>').attr('src','img/cloud-lg1.png').css('position','absolute').css('top',((i*922)%250)+220).css('left',i*1120+200).appendTo('#parallax-bg2');
       $('<img>').attr('src','img/cloud-lg2.png').css('position','absolute').css('top',((i*933)%250)+110).css('left',i*1310+150).appendTo('#parallax-bg1');
-      $('<img>').attr('src',posts[i].image).css('position','absolute').css('top',50).css('left',i*1200+1200).appendTo('#parallax-bg3');
+      $('<img>').attr('src',posts[i].image).css('position','absolute').css('top',50).css('left',i*1400+1200).appendTo('#parallax-bg3');
       postsToAdd.push(createNewRow(posts[i],i));
     }
     blogContainer.append(postsToAdd);
