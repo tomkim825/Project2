@@ -32,7 +32,7 @@ h3 {
     border-top: solid 3px #808080;
     width:6000px;
     position: absolute;
-    top: -410px;
+    top: 49vh;
 } 
 
 .line2
@@ -40,7 +40,7 @@ h3 {
     border-top: solid 3px #808080;
     width:6000px;
     position: absolute;
-    top: -400px;
+    top: 51vh;
 } 
 
 .middle
