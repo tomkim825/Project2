@@ -7,9 +7,13 @@ console.log("Present!");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
   $(document).on("click", "button.edit", handlePostEdit);
+  $(document).on("click", "button.like",  handlePostLike);
+  $(document).on("click", "button.dislike", handlePostDislike);
+  $(document).on("click", "button.ohyeah",  handlePostOhYeah);
+  $(document).on("click", "button.search", handlePostSearch );
   // Variable to hold our posts
   var posts;
-
+var postsArray = [];
   // The code below handles the case where we want to get blog posts for a specific author
   // Looks for a query param in the url for author_id
   var url = window.location.search;
@@ -22,7 +26,24 @@ console.log("Present!");
   else {
     getPosts();
   }
-
+  // This function grabs posts from the database and updates the view
+  function handlePostSearch(event) {
+    event.preventDefault();
+    var query = $('#search').val().trim();
+    searchTerm = "/?search=" + query;
+  console.log(query)
+    $.get("/api/search/" + query, function(data) {
+      console.log("Posts", data);
+      posts = data;
+      if (!posts || !posts.length) {
+        blogContainer.empty();
+        blogContainer.text('no results found');
+      }
+      else {
+        initializeRows();
+      }
+    });
+  }
 
   // This function grabs posts from the database and updates the view
   function getPosts(author) {
@@ -52,7 +73,50 @@ console.log("Present!");
         getPosts(postCategorySelect.val());
       });
   }
+  
+  
+    // This function does an API call to like posts
+    function likePost(post) {
+      post.likes += 1
+      console.log(post);
+      $.ajax({
+        method: "PUT",
+        url: "/api/posts",
+        data: post
+      })
+        .then(function() {
+          window.location.href = "/blog";
+        });
+    }
 
+    function ohYeahPost(post) {
+      post.ohyeah += 1
+
+      $.ajax({
+        method: "PUT",
+        url: "/api/posts",
+        data: post
+      })
+        .then(function() {
+          window.location.href = "/blog";
+        });
+    }
+
+
+    // This function does an API call to like posts
+    function dislikePost(post) {
+
+      post.likes -= 1
+   
+      $.ajax({
+        method: "PUT",
+        url: "/api/posts",
+        data: post
+      })
+        .then(function() {
+          window.location.href = "/blog";
+        });
+    }
   // InitializeRows handles appending all of our constructed post HTML inside blogContainer
   function initializeRows() {
     blogContainer.empty();
@@ -76,6 +140,7 @@ console.log("Present!");
 
   // This function constructs a post's HTML
   function createNewRow(post,i) {
+     postsArray.push(post);
     // console.log(post.image);
     // var formattedDate = new Date(post.createdAt);
     // formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
@@ -95,13 +160,13 @@ console.log("Present!");
     // var editBtn = $("<button>");
     var likeBtn  = $("<button>");
     // likeBtn.html('<i class="fas fa-thumbs-up"></i>');
-    likeBtn.attr('id', 'like').addClass('btn btn-outline-dark fas fa-thumbs-up').appendTo(newPostCard);
+    likeBtn.attr('id', 'like').addClass('like btn btn-outline-dark fas fa-thumbs-up').attr('data-id',post.id).appendTo(newPostCard);
     var dislikeBtn  = $("<button>");
-    dislikeBtn.attr('id', 'dislike').addClass('btn btn-outline-dark fas fa-thumbs-down').appendTo(newPostCard);
+    dislikeBtn.attr('id', 'dislike').addClass('dislike btn btn-outline-dark fas fa-thumbs-down').attr('data-id',post.id).appendTo(newPostCard);
     // var scoreBtn  = $("<button>");
     // scoreBtn.addClass('btn btn-sm btn-outline-dark').text('0');
-    var meTooBtn = $('<button>');
-    meTooBtn.attr('id', 'oyea').addClass('btn btn-outline-dark btn btn-outline-danger fa fa-users').appendTo(newPostCard);
+    var ohYeahBtn = $('<button>');
+    ohYeahBtn.attr('id', 'oyea').addClass('btn btn-outline-dark btn btn-outline-danger fa fa-users').attr('data-id',post.id).appendTo(newPostCard);
 
     newPostCard.appendTo('.front');
 
@@ -155,7 +220,35 @@ console.log(posts[i].image);
       .data("post");
     deletePost(currentPost.id);
   }
+function handlePostLike() {
+    var postNew;
+    for (var i =0 ; i<postsArray.length; i++) {
+      if (parseInt($(this)[0].id) == postsArray[i].id){
+        postNew = postsArray[i]
+      }
+    };
+    likePost(postNew);
+  }
 
+  function handlePostDislike() {
+    var dislikedPost;
+    for (var i =0 ; i<postsArray.length; i++) {
+      if (parseInt($(this)[0].id) == postsArray[i].id){
+        dislikedPost = postsArray[i]
+      }
+    };
+    dislikePost(dislikedPost);
+  }
+
+  function handlePostOhYeah() {
+    var ohYeah;
+    for (var i =0 ; i<postsArray.length; i++) {
+      if (parseInt($(this)[0].id) == postsArray[i].id){
+        ohYeah = postsArray[i]
+      }
+    };
+    ohYeahPost(ohYeah);
+  }
   // This function figures out which post we want to edit and takes it to the appropriate url
   function handlePostEdit() {
     var currentPost = $(this)
