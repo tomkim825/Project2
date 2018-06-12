@@ -56,15 +56,22 @@ $(document).ready(function() {
   // InitializeRows handles appending all of our constructed post HTML inside blogContainer
   function initializeRows() {
     blogContainer.empty();
-    var postsToAdd = [];
+    var postsToAdd = []
+    var images = ['http://www.midwest-vintage.com/blog/wp-content/uploads/2012/02/4132732432_c7e8f230fd_b.jpg',"https://1.bp.blogspot.com/-S8oaWWs42mk/Wxa_Me-g0LI/AAAAAAADKXM/VvGKpABSO38nYJsrYHxcnoiR1aG6WGFlwCLcBGAs/s1600/keith-parfitt-photos-3.jpg","http://quartersnacks.com/wp-content/uploads/2011/02/022111.jpg", "http://ultimateclassicrock.com/files/2015/03/Jimi-Hendrix.jpg", "https://flashbak.com/wp-content/uploads/2015/03/japanese-advertising-19.jpg", "https://d2jv9003bew7ag.cloudfront.net/uploads/Musa-N.Nxumalo-Sihle-Khambule-1-%E2%80%93-Alternative-Kidz-series-2009-courtesy-of-the-artist-and-SMAC-gallery..jpg"];
     for (var i = 0; i < posts.length; i++) {
-      $('<img>').attr('src','img/cloud-lg1.png').css('position','absolute').css('top',((i*922)%250)+220).css('left',i*1120+200).appendTo('#parallax-bg2');
-      $('<img>').attr('src','img/cloud-lg2.png').css('position','absolute').css('top',((i*933)%250)+110).css('left',i*1310+150).appendTo('#parallax-bg1');
+      var randomNumber =  Math.floor(Math.random()*images.length);
+      var randomNumber2 =  Math.floor(Math.random()*images.length);
+      var randomHeight = Math.floor(Math.random()*15);
+      var randomHeight2 = Math.floor(25+Math.random()*25);
+      $('<img>').attr('src',images[randomNumber]).css('filter', 'blur(3px) grayscale()').css('opacity', '0.25').css('transform', 'scale(0.45)').css('position','absolute').css('top', randomHeight+"vh").css('left',i*1120+200).appendTo('#parallax-bg2');
+      $('<img>').attr('src',images[randomNumber2]).css('filter', 'blur(8px) grayscale()').css('opacity', '0.1').css('transform', 'scale(0.2)').css('position','absolute').css('top', randomHeight2+"vh").css('left',i*1310+150).appendTo('#parallax-bg1');
       $('<img>').attr('src',posts[i].image).css('position','absolute').css('top',125+(i%2)*150).css('left',i*1360+1220).appendTo('#parallax-bg3');
       postsToAdd.push(createNewRow(posts[i],i));
     }
     blogContainer.append(postsToAdd);
     $('body').height(posts.length * 1500);
+    $('<div>').css('border','1px solid white').css('width', posts.length * 1500).css('position','fixed').css('top','49%').css('left',0).appendTo('.blog');
+    $('<div>').css('border','1px solid white').css('width', posts.length * 1500).css('position','fixed').css('top','51%').css('left',0).appendTo('.blog');
   }
 
   // This function constructs a post's HTML
@@ -87,7 +94,7 @@ $(document).ready(function() {
     var scoreBtn  = $("<button>");
     scoreBtn.addClass('btn btn-sm btn-outline-dark').text('0');
     var meTooBtn = $('<button>');
-    meTooBtn.addClass('btn btn-sm btn-outline-light ml-3').text('Me Too');
+    meTooBtn.addClass('btn btn-sm btn-outline-light ml-3').text('Oh Yeah');
 
     // editBtn.text("EDIT");
     // editBtn.addClass("edit btn btn-info");

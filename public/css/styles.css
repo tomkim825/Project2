@@ -54,3 +54,15 @@ a{
   background-color: rgba(0,0,0,0.3);
 color: #888;
 }
+
+h2{
+  font-size: 10vh;
+}
+
+p{
+  font-size: 2vh;
+}
+
+input[type=text] {
+  width: 8vw;
+}
