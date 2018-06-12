@@ -19,14 +19,15 @@
         <div id="wrapper">
                 <header id="branding" class="navbar fixed-top" style='  background-color:  rgba(0,0,0,0.5)'>
                     <h1 style='display:inline' class='text-light'>Social history</h1>
-                    <div class="input-group col-md-2">
-                        <input class="form-control py-2" type="search" value="search" id="example-search-input">
-                        <span class="input-group-append">
-                          <button class="btn btn-outline-secondary" type="button">
-                              <i class="fa fa-search"></i>
-                          </button>
-                        </span>
-                  </div>
+                     
+			<form class="form-inline" style="float:right">
+			  <input class="form-control mr-0 my-auto" type="search" placeholder="Search" aria-label="Search" id="search">
+			  <button class="btn btn-outline-secondary search" type="button">
+			    <i class="fa fa-search"></i>
+			</button>
+		      </form>
+
+      
                     <a class="btn btn-light float-right text-dark" href="/cms">New Post</a>
                     <a class="btn btn-light float-right text-dark" href="/authors">Manage Authors</a>
                   </header>
