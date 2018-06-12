@@ -1,8 +1,8 @@
 $(document).ready(function() {
   /* global moment */
-
+console.log("Present!");
   // blogContainer holds all of our posts
-  var blogContainer = $(".blog-container");
+  var blogContainer = $(".front");
   var postCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
@@ -63,9 +63,9 @@ $(document).ready(function() {
       var randomNumber2 =  Math.floor(Math.random()*images.length);
       var randomHeight = Math.floor(Math.random()*15);
       var randomHeight2 = Math.floor(25+Math.random()*25);
-      $('<img>').attr('src',images[randomNumber]).css('filter', 'blur(3px) grayscale()').css('opacity', '0.25').css('transform', 'scale(0.45)').css('position','absolute').css('top', randomHeight+"vh").css('left',i*1120+200).appendTo('#parallax-bg2');
-      $('<img>').attr('src',images[randomNumber2]).css('filter', 'blur(8px) grayscale()').css('opacity', '0.1').css('transform', 'scale(0.2)').css('position','absolute').css('top', randomHeight2+"vh").css('left',i*1310+150).appendTo('#parallax-bg1');
-      $('<img>').attr('src',posts[i].image).css('position','absolute').css('top',125+(i%2)*150).css('left',i*1360+1220).appendTo('#parallax-bg3');
+      // $('<img>').attr('src',images[randomNumber]).css('filter', 'blur(3px) grayscale()').css('opacity', '0.25').css('transform', 'scale(0.45)').css('position','absolute').css('top', randomHeight+"vh").css('left',i*1120+200).appendTo('.horizon');
+      // $('<img>').attr('src',images[randomNumber2]).css('filter', 'blur(8px) grayscale()').css('opacity', '0.1').css('transform', 'scale(0.2)').css('position','absolute').css('top', randomHeight2+"vh").css('left',i*1310+150).appendTo('.horizon');
+      // $('<img>').attr('src',posts[i].image).css('position','absolute').css('top',125+(i%2)*150).css('left',i*1360+1220).appendTo('.front');
       postsToAdd.push(createNewRow(posts[i],i));
     }
     blogContainer.append(postsToAdd);
@@ -76,30 +76,43 @@ $(document).ready(function() {
 
   // This function constructs a post's HTML
   function createNewRow(post,i) {
+    // console.log(post.image);
     // var formattedDate = new Date(post.createdAt);
     // formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     var newPostCard = $("<div>");
-    newPostCard.addClass("card").css('left',1400*i).css('top',-120*i +(i%2)*150);;
-    var newPostCardHeading = $("<div>");
-    newPostCardHeading.addClass("card-header");;
+    newPostCard.addClass('page').css('left',1400*i).css('top',-500*i +(i%2)*150);
+    // newPostCard.addClass("page").css('left',1400*i).css('top',-120*i +(i%2)*150).appendTo('.front');
+    var newPostCardInfo = $("<img>").attr('src', post.image).appendTo(newPostCard);
+    var newTitle = $('<h3>').text(post.title).appendTo(newPostCard);
+    var newBody = $('<p>').text(post.body).appendTo(newPostCard);
+    
+    // newPostCardInfo.addClass("page");
+    // newPostCardInfo.appendTo(newPostCard);
+    // newPostCard.appendTo(".front");
     // var deleteBtn = $("<button>");
     // deleteBtn.text("x");
     // deleteBtn.addClass("delete btn btn-danger");
     // var editBtn = $("<button>");
     var likeBtn  = $("<button>");
     // likeBtn.html('<i class="fas fa-thumbs-up"></i>');
-    likeBtn.addClass('btn btn-outline-success fas fa-thumbs-up');
+    likeBtn.attr('id', 'like').addClass('btn btn-outline-dark fas fa-thumbs-up').appendTo(newPostCard);
     var dislikeBtn  = $("<button>");
-    dislikeBtn.addClass('btn btn-outline-danger fas fa-thumbs-down');
-    var scoreBtn  = $("<button>");
-    scoreBtn.addClass('btn btn-sm btn-outline-dark').text('0');
+    dislikeBtn.attr('id', 'dislike').addClass('btn btn-outline-dark fas fa-thumbs-down').appendTo(newPostCard);
+    // var scoreBtn  = $("<button>");
+    // scoreBtn.addClass('btn btn-sm btn-outline-dark').text('0');
     var meTooBtn = $('<button>');
-    meTooBtn.addClass('btn btn-sm btn-outline-light ml-3').text('Oh Yeah');
+    meTooBtn.attr('id', 'oyea').addClass('btn btn-outline-dark btn btn-outline-danger fa fa-users').appendTo(newPostCard);
+
+    newPostCard.appendTo('.front');
 
     // editBtn.text("EDIT");
     // editBtn.addClass("edit btn btn-info");
-    var newPostTitle = $("<h2>").css('color','red').css('font-size', "8vmin");
-    var newPostDate = $("<small>");
+    // var newPostTitle = $("<h2>");
+  
+    
+    // .css('color','red').css('font-size', "8vmin");
+    
+    // var newPostDate = $("<small>");
     // var newPostAuthor = $("<h5>");
     // newPostAuthor.text("Written by: " + post.Author.name);
     // newPostAuthor.css({
@@ -110,26 +123,26 @@ $(document).ready(function() {
     // });
 console.log(posts[i].image);
 
-    var newPostCardBody = $("<article>");
-    newPostCardBody.addClass("card-body shpost");//.css('left',1400*i).css('top',-24*i);
-    var newPostBody = $("<p>");
-    newPostTitle.text(post.title + " ");
-    newPostBody.text(post.body);
+    // var newPostCardBody = $("<article>");
+    // newPostCardBody.addClass("photo page");//.css('left',1400*i).css('top',-24*i);
+    // var newPostBody = $("<p>");
+    // newPostCard.text(post.title + " ");
+    // newPostCard.text(post.body);
     // newPostDate.text(formattedDate);
     // newPostTitle.append(newPostDate);
     // newPostCardHeading.append(deleteBtn);
     // newPostCardHeading.append(editBtn);
-    newPostCardHeading.append(newPostTitle);
-    newPostTitle.append(likeBtn);
-    newPostTitle.append(scoreBtn);
-    newPostTitle.append(dislikeBtn);
-    newPostTitle.append(meTooBtn);
+    // newPostCard.append(newPostTitle);
+    // newPostTitle.append(likeBtn);
+    // newPostTitle.append(scoreBtn);
+    // newPostTitle.append(dislikeBtn);
+    // newPostTitle.append(meTooBtn);
     
 
     // newPostCardHeading.append(newPostAuthor);
-    newPostCardBody.append(newPostBody);
-    newPostCard.append(newPostCardHeading);
-    newPostCard.append(newPostCardBody);
+    // newPostCardBody.append(newPostBody);
+    // newPostCard.append(newPostCardHeading);
+    // newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);
     return newPostCard;
   }

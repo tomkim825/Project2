@@ -233,3 +233,70 @@ nav.next-prev {
 			z-index: 99;
 		}
 
+/* Testing CSS */
+
+
+.page
+{
+    top: 0px;
+    max-width: 700px;
+    /* padding: 10px 30px; */
+    /* border: 1px #eee solid; */
+    transition:.3s;
+	position:relative;
+	z-index: 99;
+}
+
+.page img{
+    width:100%;
+    height:100%;
+    transition:.3s;
+    border-radius:4px;
+  }
+
+.page:hover img{
+    filter: brightness(25%);
+}
+
+.page :not(img){
+    position:absolute;
+    z-index:1;
+    top:30%;
+    width:100%;
+    text-align: left;
+    color:#fff;
+    opacity:0;
+    transition:.3s;
+}
+
+.page h3{
+    top:7%;
+    left: 2%;
+     max-width: 250px;
+  }
+
+.page p{
+    padding: 0px 30px 30px 30px;
+  }
+
+.page:hover :not(img){
+    opacity:1;
+  }
+
+#like {
+    width: 45px;
+    top: 5%;
+    right: 15%
+}
+
+#dislike {
+    width: 45px;
+    top: 5%;
+    right: 8%;
+}
+
+#oyea {
+    width: 45px;
+    top: 5%;
+    right: 1%;
+}
