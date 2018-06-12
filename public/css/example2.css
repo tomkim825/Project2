@@ -31,7 +31,7 @@ h3 {
 {
     border-top: solid 3px #808080;
     width:6000px;
-    position: absolute;
+    position: fixed;
     top: 49vh;
 } 
 
@@ -39,7 +39,7 @@ h3 {
 {
     border-top: solid 3px #808080;
     width:6000px;
-    position: absolute;
+    position: fixed;
     top: 51vh;
 } 
 
