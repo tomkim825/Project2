@@ -50,10 +50,13 @@ a{
   margin:0 2px;
 }
 
-.card-body,
-.card {
-  background-color: rgba(0,0,0,0.6);
+.card-body{
+background-color: rgba(0,0,0,0.7);
 color: #999;
+}
+
+.card {
+background-color: rgba(0,0,0,0);
 }
 
 h2{
