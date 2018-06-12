@@ -18,6 +18,7 @@ module.exports = function(app) {
     if (req.query.author_id) {
       query.AuthorId = req.query.author_id;
     }
+    
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
@@ -28,6 +29,28 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
+
+    // GET route for getting all of the posts
+    app.get("/api/search/:query", function(req, res) {
+      // var query = {};
+      // var searchTerm = req.query.search;
+      // if (req.query.search) {
+      //   query.body = "{$like '%'" + searchTerm + "'%'} "
+      // }
+      
+      // Here we add an "include" property to our options in our findAll query
+      // We set the value to an array of the models we want to include in a left outer join
+      // In this case, just db.Author
+      db.Post.findAll({
+        where: {
+          body: {
+            $like: '%' + req.params.query + '%'
+          }
+        }
+      }).then(function(dbPost) {
+        res.json(dbPost);
+      });
+    });
 
   // Get route for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
