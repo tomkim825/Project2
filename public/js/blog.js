@@ -148,7 +148,7 @@ function searchPosts(event) {
     var newBody = $('<p>').text(post.body).appendTo(newPostCard);
     var likeBtn  = $("<button>").attr('id', 'like').addClass('like notClicked btn btn-outline-dark fas fa-thumbs-up').attr('data-id',post.id).text(" "+post.likes).appendTo(newPostCard);
     var dislikeBtn  = $("<button>").attr('id', 'dislike').addClass('dislike notClicked btn btn-outline-dark fas fa-thumbs-down').attr('data-id',post.id).text(" "+post.dislikes).appendTo(newPostCard);
-    var ohYeahBtn = $('<button>').attr('id', 'oyea').addClass('ohyeah notClicked btn btn-outline-dark btn btn-outline-danger fa fa-users').attr('data-id',post.id).text(" "+post.ohyeah).appendTo(newPostCard);
+    var ohYeahBtn = $('<button>').attr('id', 'oyea').addClass('ohyeah notClicked btn btn-outline-dark btn btn-outline-danger fa fa-users').attr('data-id',post.id).text(" "+post.ohyeah).attr('title','oh yea! I remember that').appendTo(newPostCard);
     newPostCard.appendTo('.front');
     return newPostCard;
   }
