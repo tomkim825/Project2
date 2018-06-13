@@ -46,8 +46,10 @@ module.exports = function(app) {
           body: {
             $like: '%' + req.params.query + '%'
           }
-        },
-        order: [['likes', 'DESC']]
+        },order: [
+            ['likes', 'DESC'],
+            ['ohyeah', 'DESC'],
+        ]
       }).then(function(dbPost) {
         res.json(dbPost);
       });
