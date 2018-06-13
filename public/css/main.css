@@ -64,7 +64,7 @@ body {
 	height: 5300px; /*will need to manipulate this in front-end jquery*/ 
 	line-height: 1.5;
 	color: #899;
-	font-size: 14px;
+	font-size: 10vmin;
 	font-family: Arial,sans-serif;
 }
 h1 {
@@ -191,39 +191,7 @@ nav.next-prev {
 				font-weight: normal;
 				line-height: 65px;
 				}
-		#about {
-			/* position: absolute; */
-			left: 4200px;
-			top: -120px;
-			}
-/* foreground (ballons/landscape) */
-#parallax-bg3 {
-	z-index: 3;
-	position: fixed;
-	/*left: 50%; /* align left edge with center of viewport */
-	top: 0;
-	/*max-width: 940px;*/
-	margin-left: -470px; /* move left by half element's width */
-	}
 
-/* midground (clouds) */
-#parallax-bg2 {
-	z-index: 2;
-	position: fixed;
-	/*left: 50%; /* align left edge with center of viewport */
-	top: 0;
-	width: 1200px;
-	margin-left: -600px; /* move left by half element's width */
-	}
-/* background (clouds) */
-#parallax-bg1 {
-	z-index: 1;
-	position: fixed;
-	/*left: 50%; /* align left edge with center of viewport */
-	top: 0;
-	width: 1200px;
-	margin-left: -600px; /* move left by half element's width */
-	}
 		#timeline{
 			height: 10px;
 			border: 10px, solid, white;
@@ -284,19 +252,19 @@ nav.next-prev {
   }
 
 #like {
-    width: 45px;
+    width: 5vmin;
     top: 5%;
     right: 15%
 }
 
 #dislike {
-    width: 45px;
+    width: 5vmin;
     top: 5%;
     right: 8%;
 }
 
 #oyea {
-    width: 45px;
+    width: 5vmin;
     top: 5%;
     right: 1%;
 }

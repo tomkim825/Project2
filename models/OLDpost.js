@@ -23,12 +23,6 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue:0,
       len: [1]
     },
-    dislikes: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue:0,
-      len: [1]
-    },
     ohyeah: {
       type: DataTypes.INTEGER,
       allowNull: false,
