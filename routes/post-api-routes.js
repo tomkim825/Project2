@@ -32,11 +32,7 @@ module.exports = function(app) {
 
     // GET route for getting all of the posts
     app.get("/api/search/:query", function(req, res) {
-      // var query = {};
-      // var searchTerm = req.query.search;
-      // if (req.query.search) {
-      //   query.body = "{$like '%'" + searchTerm + "'%'} "
-      // }
+
       
       // Here we add an "include" property to our options in our findAll query
       // We set the value to an array of the models we want to include in a left outer join
@@ -101,3 +97,15 @@ module.exports = function(app) {
     });
   });
 };
+// adding categories
+  // Get route for returning posts of a specific category
+  app.get("/api/posts/category/:category", function(req, res) {
+    db.Post.findAll({
+      where: {
+        category: req.params.category
+      }
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
