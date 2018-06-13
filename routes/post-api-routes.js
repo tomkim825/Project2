@@ -45,12 +45,11 @@ module.exports = function(app) {
         where: {
           body: {
             $like: '%' + req.params.query + '%'
-          },
-          order: [
+          }
+        },order: [
             ['likes', 'DESC'],
             ['ohyeah', 'DESC'],
         ]
-        }
       }).then(function(dbPost) {
         res.json(dbPost);
       });
