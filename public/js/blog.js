@@ -141,17 +141,28 @@ function searchPosts(event) {
 
   // helper function to constructs a post's HTML. Called in for loop above for each post
   function createNewRow(post,i) {
+    var tagged =""
+    var tagString = post.tags;
+    var tagArray = tagString.split(' ');
+    var newTag;
+    for (var i = 0 ; i < tagArray.length ;  i++) {
+      newTag = '#' + tagArray[i];
+      tagged += " " +newTag; 
+    }
+
     postsArray.push(post); //pushes post info into array to be used to reference. Button click has data-ID. For loop of postArray to find matching ID to get post info to update
     var newPostCard = $("<div>").addClass('page').css('left',95*i +10+'vw').css('top',-50*i +"vh").css('max-width','75vh').css('height','auto'); //main card. added viewport width positioning to ensure it works correctly
     var newPostCardInfo = $("<img>").attr('src', post.image).css('max-width','75vh').css('height','auto').appendTo(newPostCard); 
     var newTitle = $('<h3>').text(post.title).appendTo(newPostCard);
     var newBody = $('<p>').text(post.body).appendTo(newPostCard);
+    var newTag = $('<h6>').text(tagged).addClass('page').appendTo(newPostCard);
     var likeBtn  = $("<button>").attr('id', 'like').addClass('like notClicked btn btn-outline-dark fas fa-thumbs-up').attr('data-id',post.id).text(" "+post.likes).appendTo(newPostCard);
     var dislikeBtn  = $("<button>").attr('id', 'dislike').addClass('dislike notClicked btn btn-outline-dark fas fa-thumbs-down').attr('data-id',post.id).text(" "+post.dislikes).appendTo(newPostCard);
     var ohYeahBtn = $('<button>').attr('id', 'oyea').addClass('ohyeah notClicked btn btn-outline-dark btn btn-outline-danger fa fa-users').attr('data-id',post.id).text(" "+post.ohyeah).attr('title','oh yea! I remember that').appendTo(newPostCard);
     newPostCard.appendTo('.front');
     return newPostCard;
   }
+  
 //========================================
 // --      [end] InitializeRows() - appends all of our constructed post HTML inside blogContainer
 //========================================  

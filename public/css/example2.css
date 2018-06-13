@@ -95,6 +95,14 @@ h3 {
      max-width: 250px;
   }
 
+  .page h3{
+    bottom:3%;
+    left: 2%;
+     max-width: 250px;
+  }
+
+
+
 .page p{
     padding: 0px 30px 30px 30px;
   }
@@ -244,6 +252,12 @@ h3 {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+
+/* new css tags */
+#tags{
+    bottom: 0;
+    position: absolute;
+}
 
 
 
