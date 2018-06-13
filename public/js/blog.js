@@ -15,7 +15,7 @@ var postsArray = [];
     if ($(this).hasClass('notClicked')) { // only allow if button hasn't already been clicked
     for (var i =0 ; i<postsArray.length; i++) {  //cycle through array of posts to find corresponding one to button
       if ($.parseJSON($(this).attr('data-id')) == postsArray[i].id ) { //when the parsed ID from button is equal to the post ID, stop the for loop 
-        postsArray[i].likes += 1; //add one to the likes value
+        postsArray[i].likes ++; //add one to the likes value
         $(this).text(' '+ postsArray[i].likes).addClass('bg-dark'); //update the text on the button and make the button grayed-out
         $(this).removeClass('notClicked'); //this will now not pass the initial condition above. User cannot like again.
           $.ajax({ //next send an AJAX call to update the database
@@ -31,7 +31,7 @@ $(document).on("click",  "button.dislike",  function () {
   if ($(this).hasClass('notClicked')) { // only allow if button hasn't already been clicked
     for (var i =0 ; i<postsArray.length; i++) {  //cycle through array of posts to find corresponding one to button
     if ($.parseJSON($(this).attr('data-id')) == postsArray[i].id ) { //when the parsed ID from button is equal to the post ID, stop the for loop 
-      postsArray[i].dislikes += 1; //add one to the dislikes value
+      postsArray[i].dislikes ++; //add one to the dislikes value
       $(this).text(' '+ postsArray[i].dislikes).addClass('bg-dark'); //update the text on the button and make the button grayed-out
       $(this).removeClass('notClicked'); //this will now not pass the initial condition above. User cannot dislike again.
         $.ajax({ //next send an AJAX call to update the database
@@ -47,7 +47,7 @@ $(document).on("click",  "button.ohyeah",  function () {
   if ($(this).hasClass('notClicked')) { // only allow if button hasn't already been clicked
     for (var i =0 ; i<postsArray.length; i++) {  //cycle through array of posts to find corresponding one to button
     if ($.parseJSON($(this).attr('data-id')) == postsArray[i].id ) { //when the parsed ID from button is equal to the post ID, stop the for loop 
-      postsArray[i].ohyeah += 1; //add one to the ohyeah value
+      postsArray[i].ohyeah ++; //add one to the ohyeah value
       $(this).text(' '+ postsArray[i].ohyeah).addClass('bg-dark'); //update the text on the button and make the button grayed-out
       $(this).removeClass('notClicked'); //this will now not pass the initial condition above. User cannot click oh yeah again.
         $.ajax({ //next send an AJAX call to update the database
