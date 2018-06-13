@@ -148,7 +148,7 @@ function searchPosts(event) {
     };
 
     postsArray.push(post); //pushes post info into array to be used to reference. Button click has data-ID. For loop of postArray to find matching ID to get post info to update
-    var newPostCard = $("<div>").addClass('page').css('left',95*i +10+'vw').css('top',-50*i +"vh").css('max-width','75vh').css('height','auto'); //main card. added viewport width positioning to ensure it works correctly
+    var newPostCard = $("<div>").addClass('page').css('left',95*i +10+'vw').css('top',-10*i +"vh").css('max-width','75vh').css('height','auto'); //main card. added viewport width positioning to ensure it works correctly
     var newPostCardInfo = $("<img>").attr('src', post.image).css('max-width','75vh').css('height','auto').appendTo(newPostCard); 
     var newTitle = $('<h3>').text(post.title).appendTo(newPostCard);
     var newBody = $('<p>').text(post.body).appendTo(newPostCard);
