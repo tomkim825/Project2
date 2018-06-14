@@ -103,7 +103,7 @@ h3 {
 .page h3{
     top:7%;
     left: 2%;
-     max-width: 250px;
+     max-width: 500px;
   }
 
 .page h6{
@@ -157,6 +157,14 @@ h3 {
     position: absolute;
     filter: grayscale() brightness(7%);
     max-width: 250px;
+}
+
+.textBubbles {
+    position: absolute;
+    /* top: -650px; */
+    color: white;
+    font-family: 'Julius Sans One', sans-serif;
+    filter: brightness(78%);
 }
 
 .description
