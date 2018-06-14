@@ -50,7 +50,7 @@ $(document).ready(function() {
         tags: tagInput
         .val()
         .trim(),
-      AuthorId: authorSelect.val()
+      AuthorId: "author"
     };
 
     // If we're updating a post run updatePost to update a post
