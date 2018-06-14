@@ -97,7 +97,7 @@ h3 {
     color:#fff;
     opacity:0;
     transition:.3s;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .page h3{
