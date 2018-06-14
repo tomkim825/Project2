@@ -162,10 +162,10 @@ function searchPosts(event) {
   // helper function to constructs a post's HTML. Called in for loop above for each post
   function createNewRow(post,i) {
     postsArray.push(post); //pushes post info into array to be used to reference. Button click has data-ID. For loop of postArray to find matching ID to get post info to update
-    var newPostCard = $("<div>").addClass('page').css('left',700*Math.pow(i,1) +'px').css('top',-67.5*Math.pow(i,1) + Math.floor(Math.random()*15) +"%").css('max-width','75vh').css('height','auto'); //main card. added viewport width positioning to ensure it works correctly
+    var newPostCard = $("<div>").addClass('page').css('left',700*i +'px').css('top',-67.5*i + Math.floor(Math.random()*15) +"%").css('max-width','75vh').css('height','auto'); //main card. added viewport width positioning to ensure it works correctly
     var newPostCardInfo = $("<img>").attr('src', post.image).css('max-width','75vh').css('height','auto').appendTo(newPostCard); 
     var newTitle = $('<h3>').text(post.title).appendTo(newPostCard);
-    var newTag = $('<h6>').text(tagString).appendTo(newBody);
+    var newTag = $('<h6>').text(tagString).appendTo(newPostCard);
     var newBody = $('<p>').text(post.body).appendTo(newPostCard);
     
     var tagString ="";
