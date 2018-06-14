@@ -14,7 +14,7 @@ Oh Yeah is a website application made to record and archive oral history. The ap
 <img height="50px" alt="node" src="http://i.imgur.com/PYufxoi.png" />
 <img height="50px" alt="sequelize" src="http://i.imgur.com/Tb20nQM.png" />
 <img height="50px" alt="passport" src="http://i.imgur.com/AFsm9Z1.png" /> 
-
+<img height ="50px" alt= "dropzpone" src= "http://www.dropzonejs.com/images/new-logo.svg" />
 
 ## Website Design Paralax
 
@@ -23,7 +23,7 @@ Oh Yeah is a website application made to record and archive oral history. The ap
 ## Drop Zone Feature
 
 ## How to use
-The user of the website has two options. They can post a blog of their experiences by typing into an input forn in which they can uplaod a audio,video or picture relating to their story. If the user opts to do research, they will have a search function where they can type a particular category to see if there is a match to what they are seeking.
+The user of the app has two options. They can post a blog of their experiences by typing into an input forn in which they have the option can uplaod a audio,video or picture relating to their story. If the user opts to do research, they will have a search function where they can type a particular category to see if there is a match to what they are seeking.
         ###Features:
 
 ## Acknowledgements
