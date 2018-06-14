@@ -114,8 +114,8 @@ $(document).ready(function() {
       rowsToAdd.push(createAuthorRow(data[i]));
     }
     authorSelect.empty();
-    console.log(rowsToAdd);
-    console.log(authorSelect);
+    // console.log(rowsToAdd);
+    // console.log(authorSelect);
     authorSelect.append(rowsToAdd);
     authorSelect.val(authorId);
   }
@@ -139,4 +139,23 @@ $(document).ready(function() {
         window.location.href = "/blog";
       });
   }
+});
+
+// get tags
+var tagsArray = [];
+$.get("/api/posts", function(data) {
+  posts = data;
+ for (var i=0; i<posts.length; i++) {
+  var splitTags = posts[i].tags.split(' ')
+  for (var j=0; j<splitTags.length; j++){
+    if (tagsArray.indexOf(splitTags[j]) === -1){
+      tagsArray.push(splitTags[j])
+    } } } }).then( function(){
+for (var i=0; i<tagsArray.length && i<10; i++){
+  $('<button>').attr('id',tagsArray[i]).addClass('btn btn-outline-primary tagButton').text('#'+tagsArray[i]).appendTo('#addTag');
+}})
+
+$(document).on('click', '.tagButton', function () {
+    $('#tags').val($('#tags').val() + " " +this.id);
+    $(this).css('display','none' )
 });
