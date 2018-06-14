@@ -1,7 +1,7 @@
 # Anotoki
 
 ## Description
-Anotoki is a website application made to record and archive oral history. The application allows users to tell their story from a historical event in time from their perspective. For researchers and scholars, it will give them a resource to pull experiences from those who have lived them by providing perspectives to use as anecdotal evidence for their research.
+Anotoki is a website application made to record and archive oral history. The application allows users to tell their story from a historical point in time from their perspective. For researchers and scholars, it will give them a resource to pull experiences from those who have lived them by providing perspectives to use as anecdotal evidence for their research.
 
 ## Sceenshot
 ![Screenshot of App](http:TA0RJUCP9-FB5LP1CDD/testingphase.gif)
@@ -48,7 +48,6 @@ The user of the Anotoki app has two options. They can post a blog of their exper
         2. Attach feature for media
         3. Search Category
         4. Archival Database
-
        
 
 ## Acknowledgements
