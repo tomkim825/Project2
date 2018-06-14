@@ -25,6 +25,7 @@ app.use(bodyParser.json());
 app.use(multer({ dest: 'public/uploads' })); // dest is not necessary if you are happy with the default: /tmp
 app.use(express.static(path.join(__dirname, 'bower_components')));
 // Static directory
+app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 // Routes
