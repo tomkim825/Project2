@@ -1,7 +1,13 @@
+/* CSS for elements overall */
+
 body
 {
     overflow-x: hidden;
     background: black;
+}
+
+h1 {
+    font-family: 'Julius Sans One', sans-serif;
 }
 
 h3 {
@@ -9,6 +15,8 @@ h3 {
     color: white;
     font-family: 'Julius Sans One', sans-serif;
 }
+
+
 /**
   * important: keep position fixed, you can however use top:0 instead of bottom:0
   * if you want to make it stick to the top of the browser
@@ -23,7 +31,7 @@ h3 {
 .horizon
 {
     line-height: 0;
-    z-index: 1;
+    z-index: 2;
     width: 3000px;
 }
 
@@ -57,6 +65,8 @@ h3 {
     width: 6000px;
 }
 
+/* Styling for the Posts */
+
 .page
 {
     top: 0px;
@@ -81,12 +91,13 @@ h3 {
 .page :not(img){
     position:absolute;
     z-index:1;
-    top:30%;
+    /* top:30%; */
     width:100%;
     text-align: left;
     color:#fff;
     opacity:0;
     transition:.3s;
+    overflow: hidden;
 }
 
 .page h3{
@@ -95,30 +106,57 @@ h3 {
      max-width: 250px;
   }
 
+.page h6{
+    bottom:7%;
+    left: 3%;
+     max-width: 250px;
+  }
+
 .page p{
-    padding: 0px 30px 30px 30px;
+    top:  20%;
+    left: 4%;
+    max-height: 40vh;
+    max-width: 580px;
+    
   }
 
 .page:hover :not(img){
     opacity:1;
   }
 
+
+  /* Styling for buttons on posts */
+
 #like {
     width: 45px;
-    top: 5%;
-    right: 15%
+    top: 25%;
+    right: 2%
 }
 
 #dislike {
     width: 45px;
-    top: 5%;
-    right: 8%;
+    top: 15%;
+    right: 2%;
 }
 
 #oyea {
     width: 45px;
     top: 5%;
-    right: 1%;
+    right: 2%;
+}
+
+
+/* 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////Outdated Styling/////////////////////////////////////////////////////////////////////////
+*/
+
+
+.tintimages {
+    /* z-index: 100; */
+    position: absolute;
+    filter: grayscale() brightness(7%);
+    max-width: 250px;
 }
 
 .description
@@ -153,82 +191,7 @@ h3 {
     left: 2700px; 
 }
 
-.tintimg {
-    filter: brightness(30%);
-}
 
-#tintimages {
-    position: relative;
-    left: 1400px;
-    top: 150px;
-    filter: brightness(5%) blur(2px) grayscale(); 
-    width: 400px;
-    /* transform: rotate(-15deg) 
-     */
-}
-
-#tintimages2 {
-    position: relative;
-    left: -550px;
-    top: 80px;
-    filter: brightness(5%) blur(2px) grayscale(); 
-    width: 300px;
-    background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
-    /* transform: rotate(-3deg)  */
-}
-
-#tintimages3 {
-    position: relative;
-    left: 300px;
-    bottom: 30px;
-    filter: brightness(5%) blur(1px) grayscale(); 
-    width: 300px;
-}
-
-#tintimages4 {
-    position: absolute;
-    left: 0px;
-    top:  -400px;
-    filter: brightness(5%) blur(2px) grayscale(); 
-    width: 400px;
-}
-
-#tintimages5 {
-    position: absolute;
-    left: 400px;
-    top: 10px;
-    filter: brightness(5%) blur(1px)grayscale(); 
-    width: 400px;
-    /* transform: rotate(10deg)  */
-}
-
-#tintimages6 {
-    position: absolute;
-    left: 700px;
-    top: -300px;
-    width: 300px;
-    filter: brightness(5%) grayscale();
-    /* transform: rotate(-45deg)  */
-}
-
-#tintimages7 {
-    position: absolute;
-    left: 1000px;
-    top: -500px;
-    width: 200px;
-    filter: brightness(15%);
-    /* transform: rotate(-35deg)  */
-}
-
-
-#tintimages8 {
-    position: absolute;
-    left: 1300px;
-    top: -400px;
-    filter: brightness(9%) blur(2px); 
-    width: 400px;
-    
-}
 
 #carouselExampleControls {
     position: absolute;
@@ -247,21 +210,15 @@ h3 {
 
 
 
-
-
-
-
 .leadcontent {
     position: relative;
-    top: -650px;
+    top: 650px;
     left: 1450px;
     
 }
 
 .middlecontent {
     position: absolute;
-    bottom: 50px;
+    top: 50px;
     left: 0px;
 }
-
-
