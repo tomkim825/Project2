@@ -40,6 +40,9 @@ module.exports = function(app) {
       db.Post.findAll({
         where: {
           $or:{
+            title: {
+              $like: '%' + req.params.query + '%'
+            },
             body: {
               $like: '%' + req.params.query + '%'
             },
