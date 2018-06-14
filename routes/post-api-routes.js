@@ -39,15 +39,9 @@ module.exports = function(app) {
       // In this case, just db.Author
       db.Post.findAll({
         where: {
-          $or:{
-            body: {
-              $like: '%' + req.params.query + '%'
-            },
-            tags: {
-              $like: '%' + req.params.query + '%'
-            },
+          body: {
+            $like: '%' + req.params.query + '%'
           }
-         
         },order: [
             ['likes', 'DESC'],
             ['ohyeah', 'DESC'],
