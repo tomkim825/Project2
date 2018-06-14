@@ -182,11 +182,11 @@ $(document).on("click", '#upload', function(event) {
   
   // upload if file selected
   if( $('#userImageFile').val() !== ''){
-      $('#uploadStatus').css('color','red').text('UPLOADING...');
-      setTimeout(function(){$('#uploadStatus').css('color','red').text('Slow connection...could take a few moments'); },1000*25) 
+      $('#uploadStatus').css('color','red').text('UPLOADING...'); 
       const file = $('#userImageFile').get(0).files[0];
       const task = storage.ref().child(filename).put(file);
       task.then(function(snapshot) {
+       $('#uploadStatus').css('color','red').text('Uploaded!...look to the left!');
       $('#image').val(snapshot.downloadURL);
       $('#userImageFile').val(''); 
       });
