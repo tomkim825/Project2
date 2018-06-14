@@ -13,11 +13,19 @@ Anotoki is a website application made to record and archive oral history. The ap
 
 ## Technolgies Used
 
-### NPM Node, Sequelize, Express, Mysql, DropZone
-<img height="50px" alt="node" src="http://i.imgur.com/PYufxoi.png" />
-<img height="50px" alt="sequelize" src="http://i.imgur.com/Tb20nQM.png" />
-<img height="50px" alt="passport" src="http://i.imgur.com/AFsm9Z1.png" /> 
-<img height ="50px" alt= "dropzpone" src= "http://www.dropzonejs.com/images/new-logo.svg" />
+        1. NodeJS, 
+        2. Sequelize 
+        3. Express 
+        4. Mysql 
+        5. JawsDB  
+        6. EJS  
+        7. Firebase 
+        8. Jquery 
+        9. Font Awesome 
+        10. Bootstrap
+        11. Animated Css 
+        12. Google Fonts
+
 
 ## Installation
 
@@ -27,16 +35,17 @@ Anotoki is a website application made to record and archive oral history. The ap
         2. Npm i express
         3. Npm i mysql2
         4. Npm i sequelize
-        5. Npm i dropzone
+        5. Npm i ejs
         6. Npm i firebase
+        7. Npm i multer
 
 ## How to use
-The user of the app has two options. They can post a blog of their experiences by typing into an input forn in which they have the option to uplaod an audio,video or picture relating to their story. If the user opts to do research, they will have a search function where they can type a particular category to see if there is a match to what they are seeking.
+The user of the Anotoki app has two options. They can post a blog of their experiences by typing into an input forn in which they have the option to uplaod an audio, video, or picture relating to their story. Second, if the user opts to do research, they will have a search function where they can type a particular category to see if there is a match to what they are seeking with teh additional feature of pulling up images formt he same category.
 
 #### Features:
         
         1. Intuitive Interface
-        2. Drop Feature for media
+        2. Attach feature for media
         3. Search Category
         4. Archival Database
 
