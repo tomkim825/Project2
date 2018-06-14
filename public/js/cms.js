@@ -2,8 +2,7 @@ $(document).ready(function() {
   // Getting jQuery references to the post body, title, form, and author select
   var bodyInput = $("#body");
   var titleInput = $("#title");
-  var tagInput = $("#tags");
-  var imageInput = $("#image");
+  var imageInput = $("#dropzone-example");
   var cmsForm = $("#cms");
   var authorSelect = $("#author");
   // Adding an event listener for when the form is submitted
@@ -14,7 +13,7 @@ $(document).ready(function() {
   var authorId;
   // Sets a flag for whether or not we're updating a post to be false initially
   var updating = false;
-
+ 
   // If we have this section in our url, we pull out the post id from the url
   // In '?post_id=1', postId is 1
   if (url.indexOf("?post_id=") !== -1) {
@@ -31,11 +30,13 @@ $(document).ready(function() {
 
   // A function for handling what happens when the form to create a new post is submitted
   function handleFormSubmit(event) {
+
     event.preventDefault();
     // Wont submit the post if we are missing a body, title, or author
     if (!titleInput.val().trim() || !bodyInput.val().trim() || !authorSelect.val()) {
       return;
     }
+    console.log("IMAGE INPUT.VAL IS:::::::: " + imageInput.val)
     // Constructing a newPost object to hand to the database
     var newPost = {
       title: titleInput
@@ -45,9 +46,6 @@ $(document).ready(function() {
         .val()
         .trim(),
         image: imageInput
-        .val()
-        .trim(),
-        tags: tagInput
         .val()
         .trim(),
       AuthorId: authorSelect.val()
@@ -114,8 +112,8 @@ $(document).ready(function() {
       rowsToAdd.push(createAuthorRow(data[i]));
     }
     authorSelect.empty();
-    // console.log(rowsToAdd);
-    // console.log(authorSelect);
+    console.log(rowsToAdd);
+    console.log(authorSelect);
     authorSelect.append(rowsToAdd);
     authorSelect.val(authorId);
   }
@@ -139,23 +137,4 @@ $(document).ready(function() {
         window.location.href = "/blog";
       });
   }
-});
-
-// get tags
-var tagsArray = [];
-$.get("/api/posts", function(data) {
-  posts = data;
- for (var i=0; i<posts.length; i++) {
-  var splitTags = posts[i].tags.split(' ')
-  for (var j=0; j<splitTags.length; j++){
-    if (tagsArray.indexOf(splitTags[j]) === -1){
-      tagsArray.push(splitTags[j])
-    } } } }).then( function(){
-for (var i=0; i<tagsArray.length && i<10; i++){
-  $('<button>').attr('id',tagsArray[i]).addClass('btn btn-outline-primary tagButton').text('#'+tagsArray[i]).appendTo('#addTag');
-}})
-
-$(document).on('click', '.tagButton', function () {
-    $('#tags').val($('#tags').val() + " " +this.id);
-    $(this).css('display','none' )
 });

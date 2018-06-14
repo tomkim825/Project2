@@ -12,32 +12,9 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       len: [1]
     },
-    tags: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      len: [1]
-    },
     image: {
       type: DataTypes.TEXT,
       allowNull: true,
-      len: [1]
-    },
-    likes: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue:0,
-      len: [1]
-    },
-    dislikes: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue:0,
-      len: [1]
-    },
-    ohyeah: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue:0,
       len: [1]
     }
   });

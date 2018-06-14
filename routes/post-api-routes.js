@@ -18,7 +18,6 @@ module.exports = function(app) {
     if (req.query.author_id) {
       query.AuthorId = req.query.author_id;
     }
-    
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
@@ -29,33 +28,6 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
-
-    // GET route for getting all of the posts
-    app.get("/api/search/:query", function(req, res) {
-
-      
-      // Here we add an "include" property to our options in our findAll query
-      // We set the value to an array of the models we want to include in a left outer join
-      // In this case, just db.Author
-      db.Post.findAll({
-        where: {
-          $or:{
-            body: {
-              $like: '%' + req.params.query + '%'
-            },
-            tags: {
-              $like: '%' + req.params.query + '%'
-            },
-          }
-         
-        },order: [
-            ['likes', 'DESC'],
-            ['ohyeah', 'DESC'],
-        ]
-      }).then(function(dbPost) {
-        res.json(dbPost);
-      });
-    });
 
   // Get route for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
@@ -90,6 +62,27 @@ module.exports = function(app) {
     });
   });
 
+  app.post('/uploads', function (req, res) {
+    console.log("::::::::::::::::::::::::::::::\n");
+    var imgPath = req.files.file.path;
+    var newImg = imgPath.replace('public','');
+    var updateStuff = {
+     image: newImg
+    };
+    console.log(newImg);
+    
+
+    db.Post.update(updateStuff, {
+      limit: 1,
+      where: {
+        title: "Rooster"
+      },
+      order: [['createdAt', 'DESC']]
+    }).then(function (entries) {
+     console.log(entries)
+    });
+  });
+
   // PUT route for updating posts
   app.put("/api/posts", function(req, res) {
     db.Post.update(
@@ -103,15 +96,3 @@ module.exports = function(app) {
     });
   });
 };
-// adding categories
-  // Get route for returning posts of a specific category
-  // app.get("/api/posts/category/:category", function(req, res) {
-  //   db.Post.findAll({
-  //     where: {
-  //       category: req.params.category
-  //     }
-  //   })
-  //     .then(function(dbPost) {
-  //       res.json(dbPost);
-  //     });
-  // });
