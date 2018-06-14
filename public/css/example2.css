@@ -130,19 +130,22 @@ h3 {
 #like {
     width: 45px;
     top: 25%;
-    right: 2%
+    right: 2%;
+    font: arial;
 }
 
 #dislike {
     width: 45px;
     top: 15%;
     right: 2%;
+    font: arial;
 }
 
 #oyea {
     width: 45px;
     top: 5%;
     right: 2%;
+    font: arial;
 }
 
 
@@ -155,7 +158,7 @@ h3 {
 .tintimages {
     /* z-index: 100; */
     position: absolute;
-    filter: grayscale() brightness(7%);
+    filter: grayscale() brightness(10%);
     max-width: 250px;
 }
 
