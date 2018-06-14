@@ -22,11 +22,6 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/cms.html"));
   });
 
-    // cms route loads cms.html
-    app.get("/cms2", function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/cms2.html"));
-    });
-
   // blog route loads blog.html
   app.get("/blog", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/blog.html"));
