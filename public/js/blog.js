@@ -3,6 +3,14 @@ var blogContainer = $(".front");  // blogContainer holds all of our posts
 var postCategorySelect = $("#category");
 var posts;   // Variable to hold our posts
 var postsArray = [];
+var tagsArray = [];
+
+
+
+
+
+
+
 //***********************************************************
 // **     Above reserved for initializing global variables     **
 //**********************************************************
@@ -127,12 +135,11 @@ function searchPosts(event) {
 //========================================
 // --      [start] InitializeRows() - appends all of our constructed post HTML inside blogContainer
 //========================================  
-  
   function initializeRows() {
-    
-     //add random photo to background
-    
-      var photoArray = [
+
+    //add random photo to background
+
+    var photoArray = [
       "http://www.midwest-vintage.com/blog/wp-content/uploads/2012/02/4132732432_c7e8f230fd_b.jpg",
       "https://flashbak.com/wp-content/uploads/2015/03/japanese-advertising-19.jpg",
       "https://1.bp.blogspot.com/-S8oaWWs42mk/Wxa_Me-g0LI/AAAAAAADKXM/VvGKpABSO38nYJsrYHxcnoiR1aG6WGFlwCLcBGAs/s1600/keith-parfitt-photos-3.jpg",
@@ -140,14 +147,14 @@ function searchPosts(event) {
       "http://ultimateclassicrock.com/files/2015/03/Jimi-Hendrix.jpg"
     ];
 
+  
 
     for (var i = 0; i < photoArray.length; i++) {
       console.log(photoArray[i]);
       $('<img>').attr('src', photoArray[i]).attr('id','testing').addClass('tintimages').css('left',400*Math.pow(i,1) +'px').css('top', 5.2*Math.pow(i,3) + Math.floor(Math.random()*10) - 900 +"px").css('max-width',Math.floor(Math.random()*250+'px')).appendTo('#test');
       $('<img>').attr('src', photoArray[i]).addClass('tintimages').css('left', 600*Math.pow(i,1) +'px').css('bottom',0.2*Math.pow(i,3) + Math.floor(Math.random()*40) -100 +"%").css('max-width',Math.floor(Math.random()*250 -800 +'px')).appendTo('#test');
     }
-    
-    
+
     blogContainer.empty(); //empties all post from the page. For example to display search results
     var postsToAdd = [] // init array to hold posts
    for (var i = 0; i < posts.length; i++) { 
@@ -161,25 +168,38 @@ function searchPosts(event) {
 
   // helper function to constructs a post's HTML. Called in for loop above for each post
   function createNewRow(post,i) {
+   
     postsArray.push(post); //pushes post info into array to be used to reference. Button click has data-ID. For loop of postArray to find matching ID to get post info to update
-    var newPostCard = $("<div>").addClass('page').css('left',700*i +'px').css('top',-67.5*i + Math.floor(Math.random()*15) +"%").css('max-width','75vh').css('height','auto'); //main card. added viewport width positioning to ensure it works correctly
+    var newPostCard = $("<div>").addClass('page').css('left',700*Math.pow(i,1) +'px').css('top',-67.5*Math.pow(i,1) + Math.floor(Math.random()*15) +"%").css('max-width','75vh').css('height','auto'); //main card. added viewport width positioning to ensure it works correctly
     var newPostCardInfo = $("<img>").attr('src', post.image).css('max-width','75vh').css('height','auto').appendTo(newPostCard); 
     var newTitle = $('<h3>').text(post.title).appendTo(newPostCard);
     var newBody = $('<p>').text(post.body).appendTo(newPostCard);
     
-    var tagString ="";
+
+    // ('top', (Math.floor(Math.random()*70)+70(i-1)))
+    // ('top',-70*Math.pow(i,1) +"%")
+
+
+    // $('<h2>').text(tagArray[i])
+    // .addClass('textBubbles').css('top', 5.2*Math.pow(i,3) + Math.floor(Math.random()*10) - 650 +"px").css('left', 400 * i +'px').appendTo("#test2");
+
+    var tagString = "";
+
     var tagArray = post.tags.split(' ');
-    for (var i = 0 ; i < tagArray.length ;  i++) {
-      tagString += ' #' + tagArray[i];
+    for (var i = 0 ; i < tagArray.length;  i++) {
+      console.log(tagArray[i]); 
+      tagsArray.push(tagArray[i]);
+
+    tagString += ' #' + tagArray[i]; 
     };
-    
+
     var newTag = $('<h6>').text(tagString).appendTo(newPostCard);
-    
     var likeBtn  = $("<button>").attr('id', 'like').addClass('like notClicked btn btn-outline-dark fas fa-thumbs-up').attr('data-id',post.id).text(" "+post.likes).appendTo(newPostCard);
     var dislikeBtn  = $("<button>").attr('id', 'dislike').addClass('dislike notClicked btn btn-outline-dark fas fa-thumbs-down').attr('data-id',post.id).text(" "+post.dislikes).appendTo(newPostCard);
     var ohYeahBtn = $('<button>').attr('id', 'oyea').addClass('ohyeah notClicked btn btn-outline-dark btn btn-outline-danger fa fa-users').attr('data-id',post.id).text(" "+post.ohyeah).attr('title','oh yea! I remember that').appendTo(newPostCard);
     newPostCard.appendTo('.front');
     return newPostCard;
+    
   }
   
 //========================================
