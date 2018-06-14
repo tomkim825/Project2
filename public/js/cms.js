@@ -139,7 +139,6 @@ $(document).ready(function() {
         window.location.href = "/blog";
       });
   }
-});
 
 // get tags
 var tagsArray = [];
@@ -152,10 +151,51 @@ $.get("/api/posts", function(data) {
       tagsArray.push(splitTags[j])
     } } } }).then( function(){
 for (var i=0; i<tagsArray.length && i<10; i++){
-  $('<button>').attr('id',tagsArray[i]).addClass('btn btn-outline-primary tagButton').text('#'+tagsArray[i]).appendTo('#addTag');
+  $('<button>').attr('id',tagsArray[i]).addClass('btn btn-outline-light tagButton').text('#'+tagsArray[i]).appendTo('#addTag');
 }})
 
 $(document).on('click', '.tagButton', function () {
     $('#tags').val($('#tags').val() + " " +this.id);
     $(this).css('display','none' )
 });
+
+// adding firebase storage
+ // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBKX1GXX2C_DBhXESSB3xtln6W8czM-TJY",
+    authDomain: "project1-marvelfaceapi.firebaseapp.com",
+    databaseURL: "https://project1-marvelfaceapi.firebaseio.com",
+    projectId: "project1-marvelfaceapi",
+    storageBucket: "project1-marvelfaceapi.appspot.com",
+    messagingSenderId: "259704712712"
+  };
+  firebase.initializeApp(config);
+  var storage = firebase.storage();
+
+  // ***************************************************************
+//          Input option #2: user selects file from device
+//    file sent to FireBase storage & URL returned -> callAPIs()  
+// ***************************************************************
+$(document).on("click", '#upload', function(event) {
+  event.preventDefault();
+  var filename = $('input[type=file]').val().replace(/C:\\fakepath\\/i, '');
+  
+  // upload if file selected
+  if( $('#userImageFile').val() !== ''){
+      $('#uploadStatus').css('color','red').text('UPLOADING...');
+      setTimeout(function(){$('#uploadStatus').css('color','red').text('Slow connection...could take a few moments'); },1000*25) 
+      const file = $('#userImageFile').get(0).files[0];
+      const task = storage.ref().child(filename).put(file);
+      task.then(function(snapshot) {
+      $('#image').val(snapshot.downloadURL);
+      $('#userImageFile').val(''); 
+      });
+  } else {
+      $('<div>').addClass('alert alert-warning').html('<strong>MISSING!</strong> Please enter info').attr('id','message-'+messageCount).appendTo('#resultDiv');
+  }; 
+});
+
+
+
+}); //end of doc ready
+
