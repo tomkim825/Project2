@@ -1,4 +1,4 @@
-# Anotiki!
+# Anotoki
 
 ## Description
 Oh Yeah is a website application made to record and archive oral history. The application provides users to tell a story from their perspective. For researchers and scholars, it will give them a resource to pull experiences from those who have lived them by providing perspectives to use as anecdotal evidence for their research.
