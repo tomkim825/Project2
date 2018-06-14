@@ -187,6 +187,7 @@ $(document).on("click", '#upload', function(event) {
       const file = $('#userImageFile').get(0).files[0];
       const task = storage.ref().child(filename).put(file);
       task.then(function(snapshot) {
+        $('#uploadStatus').css('color','blue').text('Done! URL filled in on the right');
       $('#image').val(snapshot.downloadURL);
       $('#userImageFile').val(''); 
       });
