@@ -21,12 +21,14 @@ Oh Yeah is a website application made to record and archive oral history. The ap
 
 ## Installation
 
-Install the following packages:
+## Install the following packages:
+        
         1. Npm i body-parser
         2. Npm i express
         3. Npm i mysql2
         4. Npm i sequelize
         5. Npm i dropzone
+        6. Npm i firebase
 
 ## How to use
 The user of the app has two options. They can post a blog of their experiences by typing into an input forn in which they have the option can uplaod a audio,video or picture relating to their story. If the user opts to do research, they will have a search function where they can type a particular category to see if there is a match to what they are seeking.
