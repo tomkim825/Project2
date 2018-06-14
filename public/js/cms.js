@@ -150,7 +150,7 @@ $.get("/api/posts", function(data) {
     if (tagsArray.indexOf(splitTags[j]) === -1){
       tagsArray.push(splitTags[j])
     } } } }).then( function(){
-for (var i=0; i<tagsArray.length && i<10; i++){
+for (var i=0; i<tagsArray.length && i<30; i++){
   $('<button>').attr('id',tagsArray[i]).addClass('btn btn-outline-light tagButton').text('#'+tagsArray[i]).appendTo('#addTag');
 }})
 
