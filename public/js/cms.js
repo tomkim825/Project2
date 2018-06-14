@@ -50,7 +50,7 @@ $(document).ready(function() {
         tags: tagInput
         .val()
         .trim(),
-      AuthorId: "authorSelect.val()"
+      AuthorId: authorSelect.val()
     };
 
     // If we're updating a post run updatePost to update a post
@@ -150,7 +150,7 @@ $.get("/api/posts", function(data) {
     if (tagsArray.indexOf(splitTags[j]) === -1){
       tagsArray.push(splitTags[j])
     } } } }).then( function(){
-for (var i=0; i<tagsArray.length && i<30; i++){
+for (var i=0; i<tagsArray.length && i<10; i++){
   $('<button>').attr('id',tagsArray[i]).addClass('btn btn-outline-light tagButton').text('#'+tagsArray[i]).appendTo('#addTag');
 }})
 
@@ -187,7 +187,6 @@ $(document).on("click", '#upload', function(event) {
       const file = $('#userImageFile').get(0).files[0];
       const task = storage.ref().child(filename).put(file);
       task.then(function(snapshot) {
-        $('#uploadStatus').css('color','blue').text('Done! URL filled in on the right');
       $('#image').val(snapshot.downloadURL);
       $('#userImageFile').val(''); 
       });
@@ -199,4 +198,3 @@ $(document).on("click", '#upload', function(event) {
 
 
 }); //end of doc ready
-
