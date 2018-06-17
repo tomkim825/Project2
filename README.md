@@ -4,9 +4,9 @@
 Anotoki is a website application made to record and archive oral history. The application allows users to tell their story from a historical point in time from their perspective. For researchers and scholars, it will give them a resource to pull experiences from those who have lived them by providing perspectives to use as anecdotal evidence for their research.
 
 ## Sceenshot
-![Screenshot of App] Screen Shot
+![gif of app](https://github.com/tomkim825/Project2/blob/master/project_2.gif)
 
-## Purpose
+## Purpose/Motivation
  The main focus of the app is to preserve that unique perspective of oral history in a database. One of the major benefits of oral history for researchers and scholars is it’s ability to bring life to the voices and experiences of individuals, many whom might have otherwise have been forgotten by history. Our app will help build a bridge to connect others with similar experiences and help to connect researchers to those maybe forgotten oral history.
 
 **[View Live Preview]https://project-2-crud-app.herokuapp.com/blog
